@@ -82,44 +82,24 @@ function getStorageStyle(storage1, storage2,storage3){
         ssd3.style.color = '#000';
     });
 }
-// memorySpace2.addEventListener('click',function(){
-//     // set style memorySpace2 
-//     memorySpace2.style.backgroundColor = '#6495ED';
-//     memorySpace2.style.color = '#FFF';
-//     // reset style memorySpace1
-//     memorySpace1.style.backgroundColor = '#fff';
-//     memorySpace1.style.color = '#000';
-// });
+// discount tags 
+let promoCode = 'tanviR'
+document.getElementById('apply-btn').addEventListener('click',function(){
+    const codeValue = document.getElementById('promo-input').value;
+    const input = document.getElementById('promo-input');
+    const success = document.getElementById('applied-text');
+    const error = document.getElementById('applied-text');
+    if(codeValue == 'tanviR'){
+        const total = document.getElementById('total-price');
+        const totalAmount = parseFloat(total.innerText);
+        const tax = (totalAmount *20)/100;
+        const totalCost = totalAmount - tax;
+        total.innerText =totalCost.toFixed(2);
+
+        input.value = '';
 
 
-
-
-// memorySpace2.addEventListener('click',function(){
-//     const memoryCost2 = document.getElementById('memory-cost');
-//     memoryCost2.innerText = 200
-// });
-// // memorySpace1
-// memorySpace1.addEventListener('click',function(){
-//     const memoryCost1 = document.getElementById('memory-cost');
-//     memoryCost1.innerText = 0;
-// });
-// ssd2
-// ssd2. addEventListener('click',function(){
-//     const storage = document.getElementById('storage-cost');
-//     storage.innerText = 100;
-// });
-// // ssd2
-// ssd3. addEventListener('click',function(){
-//     const storage1 = document.getElementById('storage-cost');
-//     storage1.innerText = 200;
-// });
-// // ssd2
-// ssd1. addEventListener('click',function(){
-//     const storage = document.getElementById('storage-cost');
-//     storage.innerText = 0;
-// });
-// // quick delivery
-// earlyDelivery. addEventListener('click',function(){
-//     const deliveryCost = document.getElementById('delivery-cost');
-//     deliveryCost.innerText = 20;
-// });
+    }else{
+        input.style.border = '2px solid red';
+    }
+});
