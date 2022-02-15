@@ -1,9 +1,9 @@
 // calling function
 getEvent('eightGB','memory-cost', 0);
 getEvent('sixteenGB','memory-cost', 200);
-const ssd1 = getEvent('ssd1','storage-cost',0);
-const ssd2 = getEvent('ssd2','storage-cost',100);
-const ssd3 = getEvent('ssd3','storage-cost',200);
+getEvent('ssd1','storage-cost',0);
+getEvent('ssd2','storage-cost',100);
+getEvent('ssd3','storage-cost',200);
 getEvent('paid-delivery','delivery-cost',20);
 getEvent('free-delivery','delivery-cost',0);
 // click event handler
@@ -27,7 +27,69 @@ function getTotal(){
     const totalPrice = document.getElementById('total-price');
     totalPrice.innerText = total;
 }
+// style function
+// =========style==================================
+// defaultStyle function calling
+getDefaultStyle('eightGB');
+getDefaultStyle('free-delivery')
+getDefaultStyle('ssd1')
 
+// default style function 
+function getDefaultStyle(event){
+    const defaultStyle = document.getElementById(event);
+    defaultStyle.style.backgroundColor = '#6495ED';
+    defaultStyle.style.color = '#fff';
+
+}
+//  set style function calling 
+getStyle('sixteenGB','eightGB');
+getStyle('eightGB','sixteenGB');
+getStyle('paid-delivery','free-delivery');
+getStyle('free-delivery','paid-delivery');
+//  set style function
+function getStyle(styleId1 , styleId2){
+    const firstStyle = document.getElementById(styleId1);
+    const secondStyle = document.getElementById(styleId2);
+    firstStyle.addEventListener('click',function(){
+        // set style memorySpace2 
+        firstStyle.style.backgroundColor = '#6495ED';
+        firstStyle.style.color = '#FFF';
+        // reset style memorySpace1
+        secondStyle.style.backgroundColor = '#fff';
+        secondStyle.style.color = '#000';
+    });
+    
+}
+//storage calling function 
+
+getStorageStyle('ssd1', 'ssd2','ssd3');
+getStorageStyle('ssd2', 'ssd1','ssd3');
+getStorageStyle('ssd2', 'ssd3','ssd1');
+// storage style
+function getStorageStyle(storage1, storage2,storage3){
+    const ssd1 = document.getElementById(storage1);
+    const ssd2 = document.getElementById(storage2);
+    const ssd3 = document.getElementById(storage3);
+    ssd2.addEventListener('click',function(){
+        // set color 
+        ssd2.style.backgroundColor = '#6495ED';
+        ssd2.style.color = '#fff';
+        // reset color 
+        ssd1.style.backgroundColor = '#fff';
+        ssd1.style.color = '#000';
+        // reset color 
+        ssd3.style.backgroundColor = '#fff';
+        ssd3.style.color = '#000';
+    });
+}
+// memorySpace2.addEventListener('click',function(){
+//     // set style memorySpace2 
+//     memorySpace2.style.backgroundColor = '#6495ED';
+//     memorySpace2.style.color = '#FFF';
+//     // reset style memorySpace1
+//     memorySpace1.style.backgroundColor = '#fff';
+//     memorySpace1.style.color = '#000';
+// });
 
 
 
