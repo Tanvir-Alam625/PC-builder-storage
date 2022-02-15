@@ -83,12 +83,12 @@ function getStorageStyle(storage1, storage2,storage3){
     });
 }
 // discount tags 
-let promoCode = 'tanviR'
+const promoCode = 'tanviR'
 document.getElementById('apply-btn').addEventListener('click',function(){
-    const codeValue = document.getElementById('promo-input').value;
     const input = document.getElementById('promo-input');
     const success = document.getElementById('applied-text');
     const error = document.getElementById('error');
+    const codeValue =input.value;
     if(codeValue == 'tanviR'){
         const total = document.getElementById('total-price');
         const totalAmount = parseFloat(total.innerText);
@@ -102,9 +102,7 @@ document.getElementById('apply-btn').addEventListener('click',function(){
         document.getElementById('apply-btn').setAttribute('disabled', true);
     }else{
         input.style.border = '2px solid red';
-        error.style.display = 'block'
-        success.style.display = 'none'
-
-
+        error.style.display = 'block';
+        success.style.display = 'none';
     }
 });
