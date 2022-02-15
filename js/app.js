@@ -88,18 +88,23 @@ document.getElementById('apply-btn').addEventListener('click',function(){
     const codeValue = document.getElementById('promo-input').value;
     const input = document.getElementById('promo-input');
     const success = document.getElementById('applied-text');
-    const error = document.getElementById('applied-text');
+    const error = document.getElementById('error');
     if(codeValue == 'tanviR'){
         const total = document.getElementById('total-price');
         const totalAmount = parseFloat(total.innerText);
         const tax = (totalAmount *20)/100;
         const totalCost = totalAmount - tax;
         total.innerText =totalCost.toFixed(2);
-
+        success.style.display = 'block'
+        error.style.display = 'none'
+        input.style.border = '2px solid green';
         input.value = '';
-
-
+        document.getElementById('apply-btn').setAttribute('disabled', true);
     }else{
         input.style.border = '2px solid red';
+        error.style.display = 'block'
+        success.style.display = 'none'
+
+
     }
 });
